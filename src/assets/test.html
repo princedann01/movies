@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      padding-right: 50px;
+    }
+
+    .text-content {
+      max-width: 400px;
+    }
+
+    .watch-tutorial-btn {
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .watch-tutorial-btn:hover {
+      background-color: #004494;
+    }
+
+    .image-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    .image-back,
+    .image-front {
+      position: absolute;
+      width: 300px;
+      top: 0;
+      right: 0;
+    }
+
+    .image-back {
+      z-index: 1;
+    }
+
+    .image-front {
+      z-index: 2;
+      top: 60px;
+      right: 180px;
+    }
+
+    .image-back img,
+    .image-front img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="text-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <button class="watch-tutorial-btn">Watch Tutorial</button>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <div class="image-back">
+        <img src="./guardian.png" alt="Guardians of the Galaxy Vol. 3" />
+      </div>
+      <div class="image-front">
+        <img src="./spider.png" alt="Spider-Man: Across the Spider-Verse" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
