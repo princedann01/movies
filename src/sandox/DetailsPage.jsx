@@ -22,7 +22,7 @@ function DetailsPage() {
 
   
     return (
-        <Link to={`/PlayTrailer/${PlayTrailer.id}`}>
+        <Link to={`/PlayTrailer/${details.id}`}>
         <div className="bg-gray-900 mt-0"  >
            
                 {details ?
