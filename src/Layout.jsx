@@ -1,23 +1,46 @@
+import React, { useState } from 'react';
 import { Outlet } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import logos from './images/logos.png';
 
 const Layout = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <>
-            <div className="pb-2 bg-black px-10  py-4 w-screen">
-                <nav className="flex justify-between items-center px-4 py-4">
+            <div className="pb-2 bg-black px-4 md:px-10 py-4">
+                <nav className="flex justify-between items-center">
                     <div className="text-lg font-bold">
                         <img src={logos} alt="logo" className="h-10" />
                     </div>
-                    <ul className="flex space-x-16 ">
-                        <li><a href="/" className="text-white hover:text-gray-900">Home</a></li>
-                        <li><a href="/explore" className="text-white hover:text-gray-900">Explore</a></li>
-                        <li><a href="/genre" className="text-white hover:text-gray-900">Genre</a></li>
-                        <li><a href="/news" className="text-white hover:text-gray-900">News</a></li>
-                        <li><a href="/movies" className="text-white hover:text-gray-900">Movies</a></li>
-                        <li><a href="/tvshows" className="text-white hover:text-gray-900">TV Shows</a></li>
+                    <ul className={`hidden md:flex space-x-8 text-white ${isMenuOpen ? 'hidden' : ''}`}>
+                        <li><Link to="/" className="hover:text-gray-900">Home</Link></li>
+                        <li><Link to="/explore" className="hover:text-gray-900">Explore</Link></li>
+                        <li><Link to="/genre" className="hover:text-gray-900">Genre</Link></li>
+                        <li><Link to="/news" className="hover:text-gray-900">News</Link></li>
+                        <li><Link to="/movies" className="hover:text-gray-900">Movies</Link></li>
+                        <li><Link to="/tvshows" className="hover:text-gray-900">TV Shows</Link></li>
                     </ul>
+                    <button className="md:hidden text-white" onClick={toggleMenu}>
+                        {/* Add your mobile menu icon here */}
+                        {isMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>}
+                    </button>
                 </nav>
+                {/* Mobile menu */}
+                <div className={`md:hidden ${isMenuOpen ? '' : 'hidden'}`}>
+                    <ul className="flex flex-col space-y-4 text-white">
+                        <li><Link to="/" className="hover:text-gray-900" onClick={toggleMenu}>Home</Link></li>
+                        <li><Link to="/explore" className="hover:text-gray-900" onClick={toggleMenu}>Explore</Link></li>
+                        <li><Link to="/genre" className="hover:text-gray-900" onClick={toggleMenu}>Genre</Link></li>
+                        <li><Link to="/news" className="hover:text-gray-900" onClick={toggleMenu}>News</Link></li>
+                        <li><Link to="/movies" className="hover:text-gray-900" onClick={toggleMenu}>Movies</Link></li>
+                        <li><Link to="/tvshows" className="hover:text-gray-900" onClick={toggleMenu}>TV Shows</Link></li>
+                    </ul>
+                </div>
             </div>
 
             <Outlet />

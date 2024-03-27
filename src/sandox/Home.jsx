@@ -43,10 +43,10 @@ function Home() {
         }
     };
     return (
-        <div className='bg-black'>
+        <div className='bg-black text-white'>
             <div className='mx-10  py-8'>
                 
-                <div className="flex mb-[50px]">
+                <div className="flex mb-32">
                     <div className="flex-1">
                         <h2 className=" uppercase text-white font-bold">find movies</h2>
                         <h1 className="font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] text-gradient mb-4">
@@ -58,7 +58,7 @@ function Home() {
                             voluptate facilis dolorum neque quae dolore quibusdam optio. Totam,
                             ipsum vero.
                         </p>
-                        <button className="flex gap-2 bg-transparent border-white mt-4">
+                        <button className="flex gap-2  bg-transparent border-white mt-4">
                             {" "}
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ function Home() {
                             Watch Tutorial
                         </button>
                     </div>
-                    <div className="relative w-[300px] flex-1 mr-[200px]">
+                    <div className="hidden sm:flex relative w-[300px] flex-1 mr-[200px]">
                         <div className="absolute w-[250px] top-0 right-0">
                             <img src={video1} alt="Guardians of the Galaxy Vol. 3" />
                         </div>
@@ -83,7 +83,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center mb-5">
+                <div className="flex justify-between items-center text-font-bold mb-5">
                     <div className='flex gap-2 items-center'>
                         <img src={trend} alt="trend" />
                         <h2>Trending</h2>
@@ -91,7 +91,7 @@ function Home() {
                     <span className='bg-gray-300 h-[1px] w-full mx-10'></span>
                     <button className='bg-transparent'>See More</button>
                 </div>
-                <div className=' grid grid-cols-6 '>
+                <div className=' grid grid-cols-2  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6'>
                     {movies.map((movie, index) => (
                         <Link to={`movie/${movie.id}`} key={index}>
                             <Cards
@@ -104,12 +104,12 @@ function Home() {
                     ))}
                 </div>
 
-                <div className="flex justify-between items-center mb-5">
-                    <h2 className='uppercase font-bold'>you may like this</h2>
-                    <span className='bg-gray-500 h-[0.5px] w-full mx-10'></span>
-                    <button className='bg-transparent'>See More</button>
+                <div className="flex justify-between items-center mb-5 mt-4">
+                    <h2 className='uppercase font-bold text-xl'>you may like this</h2>
+                    <span className='bg-gray-500 h-[0.5px] w-full mx-20'></span>
+                    <button className='bg-transparent  font-bold '>See More</button>
                 </div>
-                <div className=' grid grid-cols-6 '>
+                <div className=' grid grid-cols-2  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 '>
                     {series.map((tv) => (
                         <Cards
                             key={tv.id}

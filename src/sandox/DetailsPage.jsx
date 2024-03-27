@@ -23,14 +23,14 @@ function DetailsPage() {
   
     return (
         <Link to={`/PlayTrailer/${PlayTrailer.id}`}>
-        <div className="bg-gray-900"  >
+        <div className="bg-gray-900 mt-0"  >
            
                 {details ?
-                    <div className='px-4 mb-2 mt-4 mx-5 flex flex-wrapgit init'>
+                    <div className='px-4 mb-2  mx-20 flex flex-wrapgit init'>
                         <div className="w/12">
                             <img src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} className='w-96' />
                         </div>
-                        <div className="w-1/2 mx-10 space-x-5">
+                        <div className="w-1/2 mx-10 space-y-5 mt-20">
                             <h6 className="text-bold text-xl text-white">{details.title}</h6>
                             <p className="text-xl text-white">Year: {details.released_date}</p>
                             <p className="text-xl  text-white">Rate: {details.vote_average}</p>

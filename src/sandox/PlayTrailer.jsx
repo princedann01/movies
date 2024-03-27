@@ -18,9 +18,11 @@ function PlayTrailer() {
     },[]);
     console.log(movieKey.key)
     return (
-        <p>
+        <div className='bg-gray-900'>
+        <p className='mt-20 mx-20'>
             <YouTubeIframe videoId={`${movieKey.key}`} />
         </p>
+        </div>
     )
 }
 
