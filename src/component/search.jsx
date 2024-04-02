@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from "./cards";
 import { Link } from 'react-router-dom';
@@ -8,40 +8,31 @@ const Search = () => {
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState('');
 
-    const fetchMovies = async () => {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=188d8743dbba697c940e04a9bcd7e9ff`);
-            setMovies(response.data.results);
-            setError('');
-        } catch (error) {
-            setError('Error fetching movies. Please try again.');
-            console.error('Error fetching movies:', error);
-        }
-    };
-
-    const handleInputChange = (event) => {
-        setQuery(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (query.trim()) {
-            fetchMovies();
-        }
-    };
-
+    
+    
+    useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=188d8743dbba697c940e04a9bcd7e9ff`);
+                setMovies(response.data.results);
+                setError('');
+            } catch (error) {
+                setError('Error fetching movies. Please try again.');
+                console.error('Error fetching movies:', error);
+            }
+        };
+        fetchMovies();
+    }, [query])
     return (
         <div className="container mx-auto p-4">
-            <form onSubmit={handleSubmit} className="mb-4">
+            <form className="mb-4">
                 <input
                     type="text"
                     value={query}
-                    onChange={handleInputChange}
+                    onChange={(e) => setQuery(e.target.value)}
                     className="w-full px-3 py-2 placeholder-gray-400 border rounded-md focus:outline-none focus:placeholder-gray-600"
                     placeholder="Search for movies..."
-                />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2">Search</button>
-            </form>
+                /></form>
 
             {error && <p className="text-red-500">{error}</p>}
 
