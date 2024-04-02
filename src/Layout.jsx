@@ -19,11 +19,13 @@ const Layout = () => {
                     </div>
                     <ul className={`hidden md:flex space-x-8 text-white ${isMenuOpen ? 'hidden' : ''}`}>
                         <li><Link to="/" className="hover:text-gray-900">Home</Link></li>
-                        <li><Link to="/explore" className="hover:text-gray-900">Explore</Link></li>
+                        <li><Link to="/search" className="hover:text-gray-900">Search</Link></li>
                         <li><Link to="/genre" className="hover:text-gray-900">Genre</Link></li>
                         <li><Link to="/news" className="hover:text-gray-900">News</Link></li>
                         <li><Link to="/movies" className="hover:text-gray-900">Movies</Link></li>
                         <li><Link to="/tvshows" className="hover:text-gray-900">TV Shows</Link></li>
+                        <li><Link to="/login" className="hover:text-gray-900">Login</Link></li>
+
                     </ul>
                     <button className="md:hidden text-white" onClick={toggleMenu}>
                         {/* Add your mobile menu icon here */}
@@ -39,6 +41,7 @@ const Layout = () => {
                         <li><Link to="/news" className="hover:text-gray-900" onClick={toggleMenu}>News</Link></li>
                         <li><Link to="/movies" className="hover:text-gray-900" onClick={toggleMenu}>Movies</Link></li>
                         <li><Link to="/tvshows" className="hover:text-gray-900" onClick={toggleMenu}>TV Shows</Link></li>
+                        <li><Link to="/login" className="hover:text-gray-900" onClick={toggleMenu}>Login</Link></li>
                     </ul>
                 </div>
             </div>

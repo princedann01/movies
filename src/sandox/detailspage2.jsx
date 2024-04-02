@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import PlayTrailer from "./PlayTrailer";
+import PlayTrailer2 from "./playTrailer2";
 
 
-function DetailsPage() {
+function DetailsPage2() {
     const [details, setDetails] = useState([]);
 
     const { id } = useParams();
@@ -12,7 +12,7 @@ function DetailsPage() {
     useEffect(() => {
         const getDetails = async () => {
 
-            const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=8ed493abe40fced7a86dfbabff806998`);
+            const { data } = await axios.get(`https://api.themoviedb.org/3/tv/${id}?language=en-US&api_key=8ed493abe40fced7a86dfbabff806998`);
             setDetails(data);
             console.log("The datta we need", data);
         }
@@ -22,7 +22,7 @@ function DetailsPage() {
 
 
     return (
-        <Link to={`/PlayTrailer/${details.id}`}>
+        <Link to={`/PlayTrailer2/${details.id}`}>
             <div className="bg-gray-900 mt-0"  >
 
                 {details ?
@@ -45,4 +45,4 @@ function DetailsPage() {
     );
 }
 
-export default DetailsPage;
+export default DetailsPage2;

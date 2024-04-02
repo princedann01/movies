@@ -45,7 +45,7 @@ function Home() {
     return (
         <div className='bg-black text-white'>
             <div className='mx-10  py-8'>
-                
+
                 <div className="flex mb-32">
                     <div className="flex-1">
                         <h2 className=" uppercase text-white font-bold">find movies</h2>
@@ -110,18 +110,20 @@ function Home() {
                     <button className='bg-transparent  font-bold '>See More</button>
                 </div>
                 <div className=' grid grid-cols-2  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 '>
-                    {series.map((tv) => (
-                        <Cards
-                            key={tv.id}
-                            src={`https://image.tmdb.org/t/p/w300${tv.poster_path}`}
-                            title={tv.original_title}
-                            year={tv.first_air_date.slice(0, 4)}
-                            vote={tv.vote_average.toFixed(1)}
-                        />
+                    {series.map((tv, index) => (
+                        <Link to={`movie2/${tv.id}`} key={index}>
+                            <Cards
+                                key={tv.id}
+                                src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`}
+                                title={tv.original_title}
+                                year={tv.first_air_date.slice(0, 4)}
+                                vote={tv.vote_average.toFixed(1)}
+                            />
+                        </Link>
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

@@ -5,7 +5,7 @@ import YouTubeIframe from 'react-youtube';
 
 
 
-function PlayTrailer() {
+function PlayTrailer2() {
 
     const { id } = useParams()
     const [movieKey, setMoviekey] = useState([])
@@ -23,8 +23,8 @@ function PlayTrailer() {
 
         ifuserisloggedin()
         const moviesData = async () => {
-            const respone = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US&api_key=8ed493abe40fced7a86dfbabff806998`)
-            console.log(respone.data.results[0])
+            const respone = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-US&api_key=8ed493abe40fced7a86dfbabff806998`)
+            console.log(respone.data)
             setMoviekey(respone.data.results[0])
         }
         moviesData()
@@ -39,4 +39,4 @@ function PlayTrailer() {
     )
 }
 
-export default PlayTrailer
+export default PlayTrailer2
